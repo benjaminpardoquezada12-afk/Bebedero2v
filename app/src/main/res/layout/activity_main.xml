@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <!-- Espaciador superior -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8" />
+
+    <!-- Carta login -->
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Logo gota de agua"
+        android:src="@drawable/logo_gota" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/bg_card_login"
+        android:padding="32dp">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bebedero IoT"
+            android:textSize="22sp"
+            android:textStyle="italic|bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Campo Correo  -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo Electronico"
+            android:textColorHint="#C8B4B4"
+            android:textColor="#FFFFFF"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="#402828"
+            android:layout_marginBottom="18dp" />
+
+        <!-- Campo Contraseña -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:textColorHint="#C8B4B4"
+            android:textColor="#FFFFFF"
+            android:inputType="textPassword"
+            android:backgroundTint="#402828"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Botón Iniciar Sesión  -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Iniciar Sesion"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4E43B3"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Ley ISO 27400 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acceso seguro bajo norma ISO 27400"
+            android:textSize="11sp"
+            android:textStyle="italic"
+            android:textColor="#EFEFEF" />
+
+    </LinearLayout>
+
+    <!-- Espaciador inferior -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

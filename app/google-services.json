@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "832679156360",
+    "project_id": "bebederoiot",
+    "storage_bucket": "bebederoiot.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832679156360:android:d9c9081536b353378b5d3d",
+        "android_client_info": {
+          "package_name": "com.example.bebedero2v"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ0AxMI3aRSwCtSpE8zGURL2c4Ivh8e2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
