@@ -1,6 +1,9 @@
 package com.example.bebedero2v
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -48,16 +51,26 @@ class DashboardActivity : AppCompatActivity() {
         })
 
         btnEncender.setOnClickListener {
+            if (!estaConectadoAWiFi()) {
+                Toast.makeText(this, "Acceso denegado: Debes conectarte a la red Wi-Fi del Bebedero", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             database.child("estado_bomba").setValue(true)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Bomba Encendida", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Bomba Encendida vía Wi-Fi", Toast.LENGTH_SHORT).show()
                 }
         }
 
         btnApagar.setOnClickListener {
+            if (!estaConectadoAWiFi()) {
+                Toast.makeText(this, "Acceso denegado: Debes conectarte a la red Wi-Fi del Bebedero", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             database.child("estado_bomba").setValue(false)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Bomba Apagada", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Bomba Apagada vía Wi-Fi", Toast.LENGTH_SHORT).show()
                 }
 
             guardarConsumoEnFirebase(12.3)
@@ -67,6 +80,13 @@ class DashboardActivity : AppCompatActivity() {
             val intent = Intent(this, HistorialActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun estaConectadoAWiFi(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
     }
 
     @Suppress("SetTextI18n")
