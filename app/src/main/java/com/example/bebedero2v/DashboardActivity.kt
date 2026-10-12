@@ -7,7 +7,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColorInt
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -27,16 +30,35 @@ class DashboardActivity : AppCompatActivity() {
         val btnApagar = findViewById<Button>(R.id.btnApagar)
         val btnIrHistorial = findViewById<Button>(R.id.btnIrHistorial)
 
+        database.child("estado_bomba").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val encendida = snapshot.getValue(Boolean::class.java) ?: false
+                if (encendida) {
+                    tvEstadoMotor.text = "Motor 12v: Encendido"
+                    tvEstadoMotor.setTextColor("#28A745".toColorInt())
+                } else {
+                    tvEstadoMotor.text = "Motor 12v: Apagado"
+                    tvEstadoMotor.setTextColor("#DC3545".toColorInt())
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@DashboardActivity, "Error de sincronización", Toast.LENGTH_SHORT).show()
+            }
+        })
+
         btnEncender.setOnClickListener {
-            tvEstadoMotor.text = "Motor 12v: Encendido"
-            tvEstadoMotor.setTextColor("#28A745".toColorInt())
-            Toast.makeText(this, "Bomba Encendida", Toast.LENGTH_SHORT).show()
+            database.child("estado_bomba").setValue(true)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Bomba Encendida", Toast.LENGTH_SHORT).show()
+                }
         }
 
         btnApagar.setOnClickListener {
-            tvEstadoMotor.text = "Motor 12v: Apagado"
-            tvEstadoMotor.setTextColor("#DC3545".toColorInt())
-            Toast.makeText(this, "Bomba Apagada", Toast.LENGTH_SHORT).show()
+            database.child("estado_bomba").setValue(false)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Bomba Apagada", Toast.LENGTH_SHORT).show()
+                }
 
             guardarConsumoEnFirebase(12.3)
         }
@@ -57,11 +79,5 @@ class DashboardActivity : AppCompatActivity() {
         registro["litros"] = litros
 
         database.child("historial_consumo").push().setValue(registro)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Consumo guardado en la base de datos", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "Error al guardar en Firebase", Toast.LENGTH_SHORT).show()
-            }
     }
 }
