@@ -26,12 +26,11 @@ class HistorialActivity : AppCompatActivity() {
         btnVolverDashboard.setOnClickListener {
             finish()
         }
-        // Lista en memoria donde guardaremos los textos
+
         val listaRegistros = ArrayList<String>()
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaRegistros)
+        val adapter = ArrayAdapter(this, R.layout.item_historial, listaRegistros)
         lvHistorial.adapter = adapter
 
-        // Leemos todos los registros de la base de datos
         database.child("historial_consumo").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 listaRegistros.clear()
@@ -40,7 +39,6 @@ class HistorialActivity : AppCompatActivity() {
                     val fecha = child.child("fecha").getValue(String::class.java) ?: "Sin fecha"
                     val litros = child.child("litros").getValue(Double::class.java) ?: 0.0
 
-
                     listaRegistros.add("Consumo ($fecha): $litros Litros")
                 }
 
@@ -48,7 +46,6 @@ class HistorialActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Manejo de error si se corta la conexión
             }
         })
     }
