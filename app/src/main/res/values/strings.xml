@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Bebedero2v</string>
+    <string name="bebedero_iot">Bebedero IoT</string>
+    <string name="wi_fi_online">● Wi-Fi Online</string>
+    <string name="nivel_de_agua_actual">NIVEL DE AGUA ACTUAL</string>
+    <string name="_15_2_cm">15.2 cm</string>
+    <string name="nivel_medio">Nivel Medio</string>
+    <string name="lleno_14_0_cm_vacio_17_0_cm">Lleno: 14.0 cm | Vacio: 17.0 cm</string>
+    <string name="control_de_actuador">CONTROL DE ACTUADOR</string>
+    <string name="motor_12v_apagada">Motor 12V: APAGADA</string>
+    <string name="encender_bomba">ENCENDER BOMBA</string>
+    <string name="apagar_bomba">APAGAR BOMBA</string>
+    <string name="ver_historial_de_consumo">Ver Historial de Consumo</string>
+    <string name="logo_gota_de_agua">Logo gota de agua</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="acceso_seguro_bajo_norma_iso_27400">Acceso seguro bajo norma ISO 27400</string>
 </resources>

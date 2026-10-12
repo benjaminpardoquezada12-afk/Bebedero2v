@@ -26,7 +26,6 @@ class HistorialActivity : AppCompatActivity() {
         btnVolverDashboard.setOnClickListener {
             finish()
         }
-
         // Lista en memoria donde guardaremos los textos
         val listaRegistros = ArrayList<String>()
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaRegistros)
@@ -41,11 +40,10 @@ class HistorialActivity : AppCompatActivity() {
                     val fecha = child.child("fecha").getValue(String::class.java) ?: "Sin fecha"
                     val litros = child.child("litros").getValue(Double::class.java) ?: 0.0
 
-                    // Añade cada fila con el formato "Fecha: Litros"
+
                     listaRegistros.add("Consumo ($fecha): $litros Litros")
                 }
 
-                // Notifica a la lista que hay nuevos elementos para dibujarlos
                 adapter.notifyDataSetChanged()
             }
 

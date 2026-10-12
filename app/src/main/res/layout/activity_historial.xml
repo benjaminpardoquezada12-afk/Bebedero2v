@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <!-- Encabezado verde: Historial de Consumo -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +27,7 @@
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
-    <!-- Lista que genera automáticamente un elemento por cada registro -->
+
     <ListView
         android:id="@+id/lvHistorial"
         android:layout_width="match_parent"
@@ -37,7 +36,7 @@
         android:divider="#E0E0E0"
         android:dividerHeight="1dp" />
 
-    <!-- Botón Volver al Dashboard -->
+
     <Button
         android:id="@+id/btnVolverDashboard"
         android:layout_width="match_parent"

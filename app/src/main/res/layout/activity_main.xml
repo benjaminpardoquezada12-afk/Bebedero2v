@@ -7,20 +7,19 @@
     android:padding="20dp"
     android:background="#FFFFFF">
 
-    <!-- Espaciador superior -->
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8" />
 
-    <!-- Carta login -->
+    <!-- -->
 
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginBottom="20dp"
-        android:contentDescription="Logo gota de agua"
+        android:contentDescription="@string/logo_gota_de_agua"
         android:src="@drawable/logo_gota" />
 
     <LinearLayout
@@ -31,7 +30,7 @@
         android:background="@drawable/bg_card_login"
         android:padding="32dp">
 
-        <!-- Título -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +57,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
+            android:hint="@string/contrase_a"
             android:textColorHint="#C8B4B4"
             android:textColor="#FFFFFF"
             android:inputType="textPassword"
@@ -70,7 +69,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:text="Iniciar Sesion"
+            android:text="@string/iniciar_sesion"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -82,7 +81,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Acceso seguro bajo norma ISO 27400"
+            android:text="@string/acceso_seguro_bajo_norma_iso_27400"
             android:textSize="11sp"
             android:textStyle="italic"
             android:textColor="#EFEFEF" />
