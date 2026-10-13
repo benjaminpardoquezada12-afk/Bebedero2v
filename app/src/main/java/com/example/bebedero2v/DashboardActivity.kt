@@ -41,7 +41,14 @@ class DashboardActivity : AppCompatActivity() {
                     tvEstadoMotor.setTextColor("#28A745".toColorInt())
                 } else {
                     tvEstadoMotor.text = "Motor 12v: Apagado"
-                    tvEstadoMotor.setTextColor("#DC3545".toColorInt())
+                    tvEstadoMotor.setTextColor("#FF00BF".toColorInt())
+                }
+                if (encendida == true) {
+                    btnEncender.isEnabled = false
+                    btnApagar.isEnabled = true
+                } else {
+                    btnEncender.isEnabled = true
+                    btnApagar.isEnabled = false
                 }
             }
 
@@ -72,8 +79,8 @@ class DashboardActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     Toast.makeText(this, "Bomba Apagada vía Wi-Fi", Toast.LENGTH_SHORT).show()
                 }
-
-            guardarConsumoEnFirebase(12.3)
+            val consumoAleatorio = String.format(java.util.Locale.US,"%.1f",kotlin.random.Random.nextDouble(10.0 , 25.0)).toDouble()
+            guardarConsumoEnFirebase(litros =   consumoAleatorio)
         }
 
         btnIrHistorial.setOnClickListener {
