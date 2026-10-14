@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(this, "Contraseña Incorrecta",  Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Correo o Contraseña Incorrecta",  Toast.LENGTH_SHORT).show()
             }
         }
     }

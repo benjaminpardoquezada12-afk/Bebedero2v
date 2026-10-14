@@ -59,7 +59,7 @@ class DashboardActivity : AppCompatActivity() {
 
         btnEncender.setOnClickListener {
             if (!estaConectadoAWiFi()) {
-                Toast.makeText(this, "Acceso denegado: Debes conectarte a la red Wi-Fi del Bebedero", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Acceso denegado: conectarte a la red Wi-Fi ", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
@@ -71,7 +71,7 @@ class DashboardActivity : AppCompatActivity() {
 
         btnApagar.setOnClickListener {
             if (!estaConectadoAWiFi()) {
-                Toast.makeText(this, "Acceso denegado: Debes conectarte a la red Wi-Fi del Bebedero", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Acceso denegado: conectarte a la red Wi-Fi ", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
